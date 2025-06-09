@@ -9,5 +9,17 @@ def iter_fibbo(n):
         fib.append(fib[i-2]+fib[i-1])
     return fib
 
+#Recursive method the fun below will only give you the last digit if we want to print the sequesnt we have to use for loop and is impracticall as it will make exponential recursive calls
+# Time Complexity: O(2ⁿ) — exponential time complexity.
+def recursive_fibbo(n):
+    if(n<=0):
+        return 0
+    if(n==1):
+         return 1
+    return recursive_fibbo(n-2)+recursive_fibbo(n-1)
+    
+
 result = iter_fibbo(7)
+# result = recursive_fibbo(7)
+
 print("Result: ", result)
