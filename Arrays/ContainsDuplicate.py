@@ -24,5 +24,4 @@ def hasDuplicate(nums):
 
 nums = [1,2,3,3]
 print(hasDuplicate(nums))            
-  
-         
+      
