@@ -17,11 +17,32 @@ def hasDuplicate(nums):
     ele_dict = {}
     for ele in nums:
         if ele in ele_dict:
+            print("hashMap",ele_dict)
             return True
         else:
             ele_dict[ele] = 1
+    print("hashMap",ele_dict)
     return False
 
+def hasDuplicate2(nums):
+    set1 = set()
+    for ele in nums:
+        if ele in set1:
+            print("set",set1)
+            return True
+        else:
+            set1.add(ele)
+    return False
+
+def hasDuplicate3(nums):
+   print("nums1",nums)
+   set2 = set(nums)
+   print("nums2",nums)
+   print("len(set2)", len(set2))
+   print("len(nums)",len(nums) )
+   print("set", set2)
+   return len(set2) != len(nums)
+
 nums = [1,2,3,3]
-print(hasDuplicate(nums))            
+print(hasDuplicate3(nums))            
       
