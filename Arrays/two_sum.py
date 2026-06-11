@@ -1,6 +1,5 @@
 nums = [3, 6, 5, 4]
-[3,4,5,6]
-target = 8
+target = 11
 # nums = [4,5,6]
 # target = 10
 # nums = [5,5]
@@ -34,5 +33,24 @@ def twoSum2(nums, target):
         else:
             j-=1
     return []
-                
-print(twoSum2(nums, target))
+
+# Solution3: Sorted two pointers while loop
+def twoSum3(nums, target):
+    A = []
+    for index, num in enumerate(nums, 0):
+        A.append([num, index])
+    # print(A)
+              
+    A.sort()
+    i, j = 0, len(A)-1
+    while i<j:
+        if(A[i][0]+A[j][0] == target):
+            return [A[i][1], A[j][1]]
+        elif A[i][0] + A[j][0] > target:
+            j-=1
+        else:
+            i+=1
+    return []
+    
+    
+print(twoSum3(nums, target))
