@@ -1,9 +1,13 @@
-nums = [3, 6, 5, 4]
-target = 11
+# nums = [3, 6, 5, 4]
+# target = 11
 # nums = [4,5,6]
 # target = 10
 # nums = [5,5]
 # target = 10
+# nums=[-1,-2,-3,-4,-5]
+# target=-8
+nums=[2,5,5,11]
+target=10
 
 # Solution1: Brute Force
 def twoSum(nums, target):
@@ -15,20 +19,20 @@ def twoSum(nums, target):
 # Solution2: Sorted Two pointer
 def twoSum2(nums, target):
     # print("sorted",sorted(nums))
-    original= []
+    A = []
     for i, num in enumerate(nums, 0):
-        original.append([num, i])
-    print("orignal: ",original)
-    original.sort()
-    print("sorted: ",original)
+        A.append([num, i])
+    print("orignal: ",A)
+    A.sort()
+    print("sorted: ",A)
     
-    j=len(original)-1
+    j=len(A)-1
     k=0
-    for i in range(len(original)):
-        print("range(len(original)): ", range(len(original)), i)
-        if(original[k][0]+ original[j][0] == target):
-            return [original[k][1], original[j][1]]
-        elif original[i][0]+ original[j][0] < target:
+    for i in range(len(A)):
+        print("range(len(A)): ", range(len(A)), i)
+        if A[k][0]+ A[j][0] == target:
+            return [A[k][1], A[j][1]]
+        elif A[k][0]+ A[j][0] < target:
             k+=1
         else:
             j-=1
@@ -53,4 +57,4 @@ def twoSum3(nums, target):
     return []
     
     
-print(twoSum3(nums, target))
+print(twoSum2(nums, target))
