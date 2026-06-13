@@ -23,5 +23,15 @@ def groupAnagrams2(strs):
         res[str_key].append(s)
     return list(res.values())
 
+# Solution 3:
+def groupAnagrams3(strs):
+        res = defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+            print("count: ",tuple(count))
+            res[tuple(count)].append(s)
+        return list(res.keys())
 
-print(groupAnagrams2(strs))
+print(groupAnagrams3(strs))
