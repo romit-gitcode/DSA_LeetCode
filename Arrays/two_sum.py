@@ -55,5 +55,23 @@ def twoSum3(nums, target):
         else:
             i+=1
     return []
+
+# Practice:
+def twoSum4(nums, target):
+    A=[]
+    for index, num in enumerate(nums,0):
+        A.append([num, index])
         
-print(twoSum3(nums, target))
+    A.sort()
+    i,j = 0, len(nums)-1
+    while i<j:
+        if A[i][0] + A[j][0] == target:
+            return sorted([A[i][1], A[j][1]])
+        elif A[i][0] + A[j][0] < target:
+            i += 1
+        else:
+            j -=1
+    return []
+            
+       
+print(twoSum4(nums, target))
