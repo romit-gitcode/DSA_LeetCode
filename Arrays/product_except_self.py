@@ -35,12 +35,17 @@ def productExceptSelf2(nums):
             continue
     return products
 
+# Using div operator
 def productExceptSelf3(nums):
-    n=len(nums)
-    products = [1]*n
+    product = 1
+    for i in nums:
+        product = product*i
     
+    res = [product]*len(nums)
+    for index, i in enumerate(nums):
+        res[index] = int(res[index]/i)
+    return res
     
-    
+# nums = [1,2,3,4]
 nums = [1,2,3,4]
-# nums = [2,2,4,5]
-print(productExceptSelf(nums))       
+print(productExceptSelf3(nums))       
