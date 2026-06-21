@@ -35,7 +35,7 @@ def productExceptSelf2(nums):
             continue
     return products
 
-# Using div operator
+# Using div operator -> O(n)
 def productExceptSelf3(nums):
     product = 1
     for i in nums:
@@ -46,6 +46,22 @@ def productExceptSelf3(nums):
         res[index] = int(res[index]/i)
     return res
     
+# Without using div operator
+def producExceptSelf4(nums):
+    n = len(nums)
+    res = [0] * n
+    pref = [0] * n
+    suff = [0] * n
+
+    pref[0] = suff[n - 1] = 1
+    for i in range(1, n):
+        pref[i] = nums[i - 1] * pref[i - 1]
+    for i in range(n - 2, -1, -1):
+        suff[i] = nums[i + 1] * suff[i + 1]
+    for i in range(n):
+        res[i] = pref[i] * suff[i]
+    return res
+
 # nums = [1,2,3,4]
 nums = [1,2,3,4]
 print(productExceptSelf3(nums))       
